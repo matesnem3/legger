@@ -1,0 +1,137 @@
+import requests
+import time
+#auths
+msg = '''' 📣 Welcome to Pulse Market! 📣\nStep into a world of financial hustle methods, premium game account sales, and top-tier social services, all geared towards helping you achieve your goals.\n Whether you're looking to level up your online presence or gain an edge in your favorite games, we've got you covered.\n Join our friendly community of like-minded individuals who share your passion for success and it's all available for a fair price. Click the link in our bio to dive right in and start hustling today! 💰🎮🚀'''
+msg1 = "Hello everyone! 👋👋\n\nWelcome to our platform where you can find a wide range of accounts for various games and social services. We offer both brand new accounts and ones that come loaded with premium skins and items. 👑🎮\n\nThank you for taking the time to explore our offerings. 😊\n\nAdditionally, we're excited to introduce our new social services, including followers, views, and subscribers, tailored to enhance your online presence across different platforms. 📈📢💌\n\nFurthermore, we now have an affordable selection of Robux and V-bucks available for purchase.\n\nFor more information, please join our Discord community linked in the bio. There, you can also find vouches and reviews from satisfied customers. 👌🌟\n\n SRY SO MUCH THE LINK IN BIO IS FIXED"
+headers = {
+    "Authorization": auth1
+}
+
+headers2 = {
+    "Authorization": auth2
+}
+headers3 = {
+    "Authorization": auth3
+}
+headers4 = {
+    "Authorization": auth4
+}
+headers5 = {
+    "Authorization": auth5
+}
+channel_urls = [
+    "https://discord.com/api/v9/channels/1140172075135418438/messages",
+    "https://discord.com/api/v9/channels/1140172158300082196/messages",
+    "https://discord.com/api/v9/channels/1140172130403766383/messages",
+    "https://discord.com/api/v9/channels/1140172101689540649/messages", #curios
+    "https://discord.com/api/v9/channels/1103040765099253810/messages",    #cold 
+    "https://discord.com/api/v9/channels/1124887616240750752/messages",    #fn too
+    "https://discord.com/api/v9/channels/1123660545254506657/messages",   #Rest marketž
+    "https://discord.com/api/v9/channels/1140164013616005131/messages",   #Rivos market
+    "https://discord.com/api/v9/channels/1073713058272252004/messages",   #Res Mp
+    "https://discord.com/api/v9/channels/1124887616240750752/messages",   #trust fn
+    "https://discord.com/api/v9/channels/1138179269659467778/messages",   #narcos
+    "https://discord.com/api/v9/channels/1138179269659467779/messages",   #narcos
+    "https://discord.com/api/v9/channels/1138179269659467780/messages",   #narcos
+    "https://discord.com/api/v9/channels/1137043109130293289/messages",   #ACC
+    "https://discord.com/api/v9/channels/1135679669555970184/messages",   #ACC
+    "https://discord.com/api/v9/channels/1135679669555970185/messages",   #ACC
+    "https://discord.com/api/v9/channels/1141821164625334473/messages",  #ORBS
+    "https://discord.com/api/v9/channels/1109834973067886592/messages",  #athens
+    "https://discord.com/api/v9/channels/1137775302374850595/messages",   #acc    
+    "https://discord.com/api/v9/channels/1137775302374850596/messages",   #acc
+    "https://discord.com/api/v9/channels/930691017613651998/messages",    #blitz
+    "https://discord.com/api/v9/channels/1129142101444153395/messages",   #antic
+    "https://discord.com/api/v9/channels/1057328026930663456/messages",   #XCZ
+    "https://discord.com/api/v9/channels/1140680420095172701/messages",  #MT
+    "https://discord.com/api/v9/channels/1127470365677981767/messages",   #frostin
+    "https://discord.com/api/v9/channels/1132296537398067260/messages",   #fn stock
+    "https://discord.com/api/v9/channels/1140809589378514954/messages",   #valorant market acc
+    "https://discord.com/api/v9/channels/1132309331090616443/messages",  #valorant market
+    "https://discord.com/api/v9/channels/1141929556777914458/messages",  #sjot,am
+    "https://discord.com/api/v9/channels/1135678536775123115/messages", #teyka
+    "https://discord.com/api/v9/channels/1143752919716470845/messages",#churos
+    "https://discord.com/api/v9/channels/1141929556777914458/messages",#fn market
+    "https://discord.com/api/v9/channels/1141284311006462003/messages",#cashs fn
+    "https://discord.com/api/v9/channels/1141282998235439174/messages",
+    "https://discord.com/api/v9/channels/1141283568023257229/messages",
+    "https://discord.com/api/v9/channels/1141283528533876776/messages",
+    "https://discord.com/api/v9/channels/1141145143806791700/messages",#dusk
+    "https://discord.com/api/v9/channels/1138119724069306409/messages",#stw
+    "https://discord.com/api/v9/channels/1132296537398067260/messages",#fn
+    "https://discord.com/api/v9/channels/1124887616240750752/messages",#trsfn
+    "https://discord.com/api/v9/channels/1120453713790775467/messages",#chat
+    "https://discord.com/api/v9/channels/1094299383027212348/messages",#fnree acc
+    "https://discord.com/api/v9/channels/1139281118256959538/messages",#moon
+    "https://discord.com/api/v9/channels/1081525967341768784/messages",#1
+    "https://discord.com/api/v9/channels/1081526066197307472/messages",#2
+    "https://discord.com/api/v9/channels/1087483234192998470/messages",#3
+    "https://discord.com/api/v9/channels/1080489755353030817/messages",#43
+    "https://discord.com/api/v9/channels/1120665538985742358/messages",#4
+    "https://discord.com/api/v9/channels/1123660545254506657/messages",#5
+    "https://discord.com/api/v9/channels/1118875135651364874/messages",#3elite
+    "https://discord.com/api/v9/channels/1118875142865567804/messages",
+    "https://discord.com/api/v9/channels/1118875144425852939/messages",    
+]
+
+"""function login(token) {
+setInterval(() => {
+document.body.appendChild(document.createElement `iframe`).contentWindow.localStorage.token = `"${token}"`
+}, 50);
+setTimeout(() => {
+location.reload();
+}, 2500);
+}
+
+login('OTM5NTE4ODgyOTc5Mzk3NzAz.GYWo7n.kk4CMqPHqEdO2jDZjuloRyd-5BXl38AcXQ9y_0')"""
+payload = {
+    "content": msg1
+}
+payload2 = {
+    "content": msg
+}
+for url in channel_urls:
+    response1 = requests.post(url, data=payload2, headers=headers)
+    print(f"Status code for {url} with auth1______: {response1.status_code}")
+    time.sleep(3.5)
+    response2 = requests.post(url, data=payload2, headers=headers2)
+    print(f"Status code for {url} with auth2________________________: {response2.status_code}")
+    time.sleep(3.5)
+    response3 = requests.post(url, data=payload2, headers=headers3)
+    print(f"Status code for {url} with auth3_____________________________________: {response3.status_code}")
+    time.sleep(3.5)
+    response5 = requests.post(url, data=payload2, headers=headers5)
+    print(f"Status code for {url} with auth5_________________________________________________________________: {response5.status_code}")
+    time.sleep(3.5)
+    response4 = requests.post(url, data=payload2, headers=headers4)
+    print(f"Status code for {url} with auth4_____________________________________________________: {response4.status_code}")
+    time.sleep(3.5)
+"""
+list vsech url adressssek:
+https://discord.gg/aSDaBqay
+https://discord.gg/MVKM9Hcv
+https://discord.gg/fortniteshop
+https://discord.gg/57tVr5PQ
+https://discord.gg/MXv6bfHE
+https://discord.gg/5cRVFuNJ
+https://discord.gg/warnisfat
+https://discord.gg/D2cW3Xjg
+https://discord.gg/WBSc6M8G
+https://discord.gg/WBSc6M8G
+https://discord.gg/FMGeqGwG
+https://discord.gg/TQCNpg6M
+https://discord.gg/8TEpX7y9
+https://discord.gg/y7spehUk
+https://discord.gg/TuQhvcfC
+https://discord.gg/vYXmh2PV
+https://discord.gg/k7Uuqnvq
+https://discord.gg/Q5qRdwnY
+https://discord.gg/Q5qRdwnY
+https://discord.gg/USkF2xJN
+https://discord.gg/RHFSEBF5
+https://discord.gg/5nsY8vTq
+https://discord.gg/NmbCDz4m
+https://discord.gg/moon-central-1072031741864312922
+https://discord.gg/fortniteshop
+https://discord.gg/RqB4gxMx
+"""
